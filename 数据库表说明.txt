@@ -1,0 +1,59 @@
+本项目一共有
+
+admin_user表：（后台管理员表）
+	id: id
+	username:  后台管理员的用户名
+	password：后台管理员的密码
+
+
+classification表：（商品分类表）总共两级
+	id: id
+	cname: 分类名称
+	parentId： 上级分类id
+	type: 分类的类型，1代表一级分类 2代表二级分类
+
+
+
+order表：（订单表）
+	id：id
+	addr：订单的发货地址
+	name：收货者姓名
+	total：订单总价
+	state：1:未付款 2:等待发货 3:等待收货 4:订单完成
+	orderTime：订单时间
+	name：收货人姓名
+	phone: 收货人联系电话
+	addr：收货地址
+	userId：用户id
+
+
+order_item表：（订单项表，存储订单详情，关联订单和商品）
+	id: id
+	orderId: 订单Id
+	productId: 商品Id
+	subTotal: 总价
+
+
+product表：(商品表)
+	id：id
+	title: 商品标题
+	市场价: marketPrice
+	商城价: shopPrice
+	商品图片：image
+	商品描述：desc
+	是否热门商品：isHot
+	csid：二级分类Id
+	pdate: 商品创建日期
+
+
+user表：（用户表）
+	id：id
+	用户名：username
+	密码：password
+	姓名：name
+	邮件：email
+	电话：phone
+	地址：addr
+
+
+说明：购物车中的数据写在session中，位于service中的impl文件夹中，其他的dao也写在下面，用到了 jps，简写或不用写sql语句
